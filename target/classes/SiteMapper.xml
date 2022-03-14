@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="t1.SiteMapper">
+
+    <select id="select" resultType="t1.Site">
+        <bind name="pattern_name" value="'%'+name+'%'" />
+        <bind name="pattern_url" value="'%'+url+'%'" />
+        SELECT id,name,url,age,country
+        FROM website
+        WHERE name like #{pattern_name}
+        AND url like #{pattern_url}
+    </select>
+</mapper>
